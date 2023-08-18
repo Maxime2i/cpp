@@ -14,13 +14,12 @@
 
 Animal::Animal()
 {
-	this->type = "Animal";
-	std::cout << type << " est cree" << std::endl;
+	std::cout << "Animal est cree" << std::endl;
 }
 
 Animal::~Animal()
 {
-	std::cout << type << " a ete detruit" << std::endl;
+	std::cout << "Animal a ete detruit" << std::endl;
 }
 
 void Animal::makeSound()const

@@ -19,7 +19,7 @@ class Animal
 {
 	public:
 		Animal();
-		virtual ~Animal();
+		~Animal();
 		virtual void makeSound()const;
 		virtual std::string getType()const;
 	
