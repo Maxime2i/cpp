@@ -18,6 +18,17 @@ ScalarConverter::ScalarConverter()
 ScalarConverter::~ScalarConverter()
 {}
 
+ScalarConverter (const ScalarConverter &copy)
+{
+	*this = copy;
+}
+
+ScalarConverter &operator=(const ScalarConverter &rhs)
+{
+	(void)rhs;
+	return *this;
+}
+
 void	ScalarConverter::printChar(char c)
 {
 	if (std::isprint(c))

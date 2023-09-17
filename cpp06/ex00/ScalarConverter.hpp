@@ -24,6 +24,8 @@ class ScalarConverter
 {
 	public:
 		~ScalarConverter();
+		ScalarConverter (const ScalarConverter &copy);
+		ScalarConverter &operator=(const ScalarConverter &rhs);
 		static void	convert(const std::string input);
 		static std::string	getType(std::string input);
 		static void	printChar(char c);
