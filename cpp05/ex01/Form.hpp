@@ -22,6 +22,8 @@ class	Form
 	public:
 		Form(std::string name, bool isSigned, const int gradeRequiredS, const int gradeRequiredE);
 		~Form();
+		Form(Form const &copy);
+		Form &operator=(Form const &rhs);
 		class GradeTooLowException : public std::exception{
 			virtual const char	*what() const throw();
 		};

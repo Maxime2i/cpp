@@ -28,7 +28,22 @@ Bureaucrat::Bureaucrat(std::string	name, int	grade)
 
 Bureaucrat::~Bureaucrat()
 {
+}
 
+Bureaucrat::Bureaucrat(Bureaucrat const &copy)
+{
+	this->_name = copy._name;
+	this->_grade = copy._grade;
+}
+
+Bureaucrat &Bureaucrat::operator=(Bureaucrat const &rhs)
+{
+	if (this != &rhs)
+	{
+		this->_name = rhs._name;
+		this->_grade = rhs._grade;
+	}
+	return (*this);
 }
 
 const char	*Bureaucrat::GradeTooHighException::what()const throw()
@@ -54,7 +69,7 @@ int	Bureaucrat::getGrade()const
 void	Bureaucrat::incrementGrade()
 {
 	if (_grade - 1 < 1)
-		throw GradeTooLowException();
+		throw GradeTooHighException();
 	else
 		this->_grade = _grade - 1;
 }
@@ -62,7 +77,7 @@ void	Bureaucrat::incrementGrade()
 void	Bureaucrat::decrementGrade()
 {
 	if (_grade + 1 > 150)
-		throw GradeTooHighException();
+		throw GradeTooLowException();
 	else
 		this->_grade = _grade - 1;
 }

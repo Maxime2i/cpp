@@ -30,6 +30,20 @@ AForm::~AForm()
 	
 }
 
+AForm::AForm(AForm const &copy) : _name(copy._name), _isSigned(copy._isSigned), _gradeRequiredS(copy._gradeRequiredS), _gradeRequiredE(copy._gradeRequiredE)
+{
+}
+
+AForm &AForm::operator=(AForm const &rhs)
+{
+	if (this != &rhs)
+	{
+		this->_name = rhs._name;
+		this->_isSigned = rhs._isSigned;
+	}
+	return (*this);
+}
+
 const char	*AForm::GradeTooHighException::what()const throw()
 {
 	return "AForm : Grade is to high";

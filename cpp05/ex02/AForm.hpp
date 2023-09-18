@@ -22,6 +22,8 @@ class	AForm
 	public:
 		AForm(std::string name, const int gradeRequiredS, const int gradeRequiredE, std::string target);
 		~AForm();
+		AForm(AForm const &copy);
+		AForm &operator=(AForm const &rhs);
 		class GradeTooLowException : public std::exception{
 			virtual const char	*what() const throw();
 		};

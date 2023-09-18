@@ -31,6 +31,22 @@ Bureaucrat::~Bureaucrat()
 
 }
 
+Bureaucrat::Bureaucrat(Bureaucrat const &copy)
+{
+	this->_name = copy._name;
+	this->_grade = copy._grade;
+}
+
+Bureaucrat &Bureaucrat::operator=(Bureaucrat const &rhs)
+{
+	if (this != &rhs)
+	{
+		this->_name = rhs._name;
+		this->_grade = rhs._grade;
+	}
+	return (*this);
+}
+
 const char	*Bureaucrat::GradeTooHighException::what()const throw()
 {
 	return "Grade is to high";
