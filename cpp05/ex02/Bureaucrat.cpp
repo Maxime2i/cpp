@@ -80,7 +80,7 @@ void	Bureaucrat::decrementGrade()
 	if (_grade + 1 > 150)
 		throw GradeTooHighException();
 	else
-		this->_grade = _grade - 1;
+		this->_grade = _grade + 1;
 }
 
 void	Bureaucrat::signForm(AForm &form)
