@@ -40,7 +40,7 @@ class	Bureaucrat
 		void	executeForm(AForm const & form);
 		
 	private:
-		std::string	_name;
+		const std::string	_name;
 		int	_grade;
 		Bureaucrat();
 };

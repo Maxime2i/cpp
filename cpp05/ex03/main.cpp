@@ -24,6 +24,7 @@ int main()
 		AForm* rrf;
 		
 		rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+		(void)rrf;
 	}
 	catch(std::exception& e)
 	{

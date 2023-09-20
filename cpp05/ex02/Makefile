@@ -10,21 +10,25 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= Bureaucrat
-	
-CC		= c++
-FLAGS	= -Wall -Wextra -Werror -std=c++98
-RM		= rm -rf
+SRC = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
+OBJ = $(SRC:.cpp=.o)
+CC = c++
+RM = rm -f
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98
+
+NAME = Bureaucrat
 
 all: $(NAME)
 
-$(NAME): 
-	@ $(CC) $(FLAGS) main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp -o $(NAME)
+$(NAME): $(OBJ)
+	$(CC) $(CPPFLAGS) $(OBJ) -o $(NAME)
 
 clean:
-	@$(RM) $(NAME)
+	$(RM) $(OBJ)
 
-fclean:
-	@$(RM) $(NAME)
+fclean: clean
+	$(RM) $(NAME)
 
-re: clean all
+re: fclean $(NAME)
+
+.PHONY: all clean fclean re
