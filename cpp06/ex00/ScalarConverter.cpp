@@ -18,12 +18,12 @@ ScalarConverter::ScalarConverter()
 ScalarConverter::~ScalarConverter()
 {}
 
-ScalarConverter (const ScalarConverter &copy)
+ScalarConverter::ScalarConverter(const ScalarConverter &copy)
 {
 	*this = copy;
 }
 
-ScalarConverter &operator=(const ScalarConverter &rhs)
+ScalarConverter &ScalarConverter::operator=(const ScalarConverter &rhs)
 {
 	(void)rhs;
 	return *this;

@@ -10,21 +10,25 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= identify
-	
-CC		= c++
-FLAGS	= -Wall -Wextra -Werror -std=c++98
-RM		= rm -rf
+SRC = main.cpp Base.cpp A.cpp B.cpp C.cpp
+OBJ = $(SRC:.cpp=.o)
+CC = c++
+RM = rm -f
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98
+
+NAME = identify
 
 all: $(NAME)
 
-$(NAME): 
-	@ $(CC) $(FLAGS) main.cpp Base.cpp A.cpp B.cpp C.cpp -o $(NAME)
+$(NAME): $(OBJ)
+	$(CC) $(CPPFLAGS) $(OBJ) -o $(NAME)
 
 clean:
-	@$(RM) $(NAME)
+	$(RM) $(OBJ)
 
-fclean:
-	@$(RM) $(NAME)
+fclean: clean
+	$(RM) $(NAME)
 
-re: clean all
+re: fclean $(NAME)
+
+.PHONY: all clean fclean re

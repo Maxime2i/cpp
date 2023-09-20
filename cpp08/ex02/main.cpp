@@ -23,6 +23,7 @@ int main()
 	std::cout << mstack.size() << std::endl;
 	mstack.push(3);
 	mstack.push(5);
+	mstack.push(5);
 	mstack.push(737);
 	//[...]
 	mstack.push(0);
@@ -46,6 +47,7 @@ int main()
 	ls.pop_back();
 	std::cout << ls.size() << std::endl;
 	ls.push_back(3);
+	ls.push_back(5);
 	ls.push_back(5);
 	ls.push_back(737);
 	//[...]
