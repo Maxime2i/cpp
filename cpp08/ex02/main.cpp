@@ -36,7 +36,7 @@ int main()
 		++it;
 	}
 	std::stack<int> s(mstack);
-	.
+
 	std::cout << std::endl;
 	
 	std::list<int> ls;
