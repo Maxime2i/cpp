@@ -20,11 +20,13 @@
 int main()
 {	
 	try{
+		Bureaucrat	Max("Max", 1);
 		Intern someRandomIntern;
 		AForm* rrf;
 		
 		rrf = someRandomIntern.makeForm("robotomy request", "Bender");
-		(void)rrf;
+		Max.signForm(*rrf);
+		Max.executeForm(*rrf);
 	}
 	catch(std::exception& e)
 	{

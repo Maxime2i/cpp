@@ -25,7 +25,7 @@ class	RobotomyRequestForm : public AForm
 	public:
 		RobotomyRequestForm(const std::string target);
 		virtual ~RobotomyRequestForm();
-		virtual void	executeConcrete() const;
+		void	execute(const Bureaucrat& executor) const;
 		
 	private:
 		RobotomyRequestForm();

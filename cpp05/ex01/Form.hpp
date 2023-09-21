@@ -6,7 +6,7 @@
 /*   By: mlangloi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 14:27:21 by mlangloi          #+#    #+#             */
-/*   Updated: 2023/09/15 14:27:22 by mlangloi         ###   ########.fr       */
+/*   Updated: 2023/09/21 14:26:16 by mlangloi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class Bureaucrat;
 class	Form
 {
 	public:
-		Form(std::string name, bool isSigned, const int gradeRequiredS, const int gradeRequiredE);
+		Form(std::string name, const int gradeRequiredS, const int gradeRequiredE);
 		~Form();
 		Form(Form const &copy);
 		Form &operator=(Form const &rhs);
@@ -37,7 +37,7 @@ class	Form
 		void	beSigned(Bureaucrat bur);
 		
 	private:
-		std::string	_name;
+		const std::string	_name;
 		bool	_isSigned;
 		const int	_gradeRequiredS;
 		const int	_gradeRequiredE;

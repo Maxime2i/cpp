@@ -26,7 +26,7 @@ class	ShrubberyCreationForm : public AForm
 	public:
 		ShrubberyCreationForm(const std::string target);
 		virtual ~ShrubberyCreationForm();
-		virtual void	executeConcrete() const;
+		void	execute(const Bureaucrat& executor) const;
 		
 	private:
 		ShrubberyCreationForm();

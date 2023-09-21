@@ -6,7 +6,7 @@
 /*   By: mlangloi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 14:27:25 by mlangloi          #+#    #+#             */
-/*   Updated: 2023/09/15 14:27:26 by mlangloi         ###   ########.fr       */
+/*   Updated: 2023/09/21 14:27:27 by mlangloi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,9 @@
 Form::Form(): _gradeRequiredS(0), _gradeRequiredE(0)
 {}
 
-Form::Form(std::string name, bool isSigned, const int gradeRequiredS, const int gradeRequiredE): _gradeRequiredS(gradeRequiredS), _gradeRequiredE(gradeRequiredE)
+Form::Form(std::string name, const int gradeRequiredS, const int gradeRequiredE): _name(name) , _gradeRequiredS(gradeRequiredS), _gradeRequiredE(gradeRequiredE)
 {
-	this->_name = name;
-	this->_isSigned = isSigned;
+	this->_isSigned = false;
 	if (_gradeRequiredS < 1 || _gradeRequiredE < 1)
 		throw GradeTooHighException();
 	else if (_gradeRequiredS > 150 || _gradeRequiredE > 150)
@@ -36,11 +35,7 @@ Form::Form(Form const &copy) : _name(copy._name), _isSigned(copy._isSigned), _gr
 
 Form &Form::operator=(Form const &rhs)
 {
-	if (this != &rhs)
-	{
-		this->_name = rhs._name;
-		this->_isSigned = rhs._isSigned;
-	}
+	*this = rhs;
 	return (*this);
 }
 

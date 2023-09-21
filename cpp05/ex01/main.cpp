@@ -18,7 +18,7 @@ int main()
 	try{
 		Bureaucrat	test("Max", 112);
 		std::cout << test;
-		Form	formulaire("tache", false, 120, 30);
+		Form	formulaire("tache", 120, 30);
 		test.signForm(formulaire);
 		std::cout << formulaire;
 	}

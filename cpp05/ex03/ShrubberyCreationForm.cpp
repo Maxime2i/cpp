@@ -22,30 +22,37 @@ ShrubberyCreationForm::ShrubberyCreationForm(const std::string target): AForm("S
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {}
 
-void	ShrubberyCreationForm::executeConcrete() const
+void	ShrubberyCreationForm::execute(const Bureaucrat& executor) const
 {
-	std::fstream	fs;
-	std::string	fileName = _target + "_shrubbery";
-	fs.open(fileName.c_str(), std::fstream::out | std::fstream::trunc);
-	if (!fs.good())
-		std::cerr << "Error cannot opoen Shrubbery target file" << std::endl;
-	fs <<
-	"              * *\n"
-	"           *    *  *\n"
-	"      *  *    *     *  *\n"
-	"     *     *    *  *    *\n"
-	" * *   *    *    *    *   *\n"
-	" *     *  *    * * .#  *   *\n"
-	" *   *     * #.  .# *   *\n"
-	"  *     \"#.  #: #\" * *    *\n"
-	" *   * * \"#. ##\"       *\n"
-	"   *       \"###\n"
-	"             \"##\n"
-	"              ##.\n"
-	"              .##:\n"
-	"              :###\n"
-	"              ;###\n"
-	"            ,####.\n"
-	"/\\/\\/\\/\\/\\/.######.\\/\\/\\/\\/\\\n";
-	fs.close();
+	if (_isSigned == false)
+		throw ExecuteUnsignedException();
+	if (_gradeRequiredE < executor.getGrade())
+		throw GradeTooLowException();
+	else
+	{
+		std::fstream	fs;
+		std::string	fileName = _target + "_shrubbery";
+		fs.open(fileName.c_str(), std::fstream::out | std::fstream::trunc);
+		if (!fs.good())
+			std::cerr << "Error cannot opoen Shrubbery target file" << std::endl;
+		fs <<
+		"              * *\n"
+		"           *    *  *\n"
+		"      *  *    *     *  *\n"
+		"     *     *    *  *    *\n"
+		" * *   *    *    *    *   *\n"
+		" *     *  *    * * .#  *   *\n"
+		" *   *     * #.  .# *   *\n"
+		"  *     \"#.  #: #\" * *    *\n"
+		" *   * * \"#. ##\"       *\n"
+		"   *       \"###\n"
+		"             \"##\n"
+		"              ##.\n"
+		"              .##:\n"
+		"              :###\n"
+		"              ;###\n"
+		"            ,####.\n"
+		"/\\/\\/\\/\\/\\/.######.\\/\\/\\/\\/\\\n";
+		fs.close();
+	}
 }

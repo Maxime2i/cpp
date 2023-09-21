@@ -15,9 +15,8 @@
 AForm::AForm(): _gradeRequiredS(0), _gradeRequiredE(0)
 {}
 
-AForm::AForm(std::string name, const int gradeRequiredS, const int gradeRequiredE, std::string target): _gradeRequiredS(gradeRequiredS), _gradeRequiredE(gradeRequiredE), _target(target)
+AForm::AForm(std::string name, const int gradeRequiredS, const int gradeRequiredE, std::string target): _name(name), _gradeRequiredS(gradeRequiredS), _gradeRequiredE(gradeRequiredE), _target(target)
 {
-	this->_name = name;
 	this->_isSigned = false;
 	if (_gradeRequiredS < 1 || _gradeRequiredE < 1)
 		throw GradeTooHighException();
@@ -38,7 +37,6 @@ AForm &AForm::operator=(AForm const &rhs)
 {
 	if (this != &rhs)
 	{
-		this->_name = rhs._name;
 		this->_isSigned = rhs._isSigned;
 	}
 	return (*this);
@@ -85,15 +83,6 @@ void	AForm::beSigned(Bureaucrat &bur)
 		this->_isSigned = true;
 		std::cout << bur.getName() << " signed the AForm " << getName() << std::endl;
 	}
-}
-
-void	AForm::execute(const Bureaucrat& executor) const
-{
-	if (_isSigned == false)
-		throw ExecuteUnsignedException();
-	if (_gradeRequiredE < executor.getGrade())
-		throw GradeTooLowException();
-	executeConcrete();
 }
 
 const char*	AForm::ExecuteUnsignedException::what() const throw() {

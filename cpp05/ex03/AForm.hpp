@@ -38,18 +38,16 @@ class	AForm
 		int	getGradeRequiredE()const;
 		int	getIsSigned()const;
 		void	beSigned(Bureaucrat &bur);
-		void	execute(const Bureaucrat& executor) const;
+		virtual void	execute(const Bureaucrat& executor) const = 0;
 		
 	protected:
-		std::string	_name;
+		const std::string	_name;
 		bool	_isSigned;
 		const int	_gradeRequiredS;
 		const int	_gradeRequiredE;
 		const std::string	_target;
 		
 		AForm();
-		virtual void	executeConcrete() const = 0;
-		
 };
 
 std::ostream&	operator<<(std::ostream &out, const AForm& form);

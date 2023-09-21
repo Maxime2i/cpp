@@ -19,12 +19,16 @@
 int main()
 {	
 	try{
+		Bureaucrat	Max("Max", 1);
 		ShrubberyCreationForm	formulaire1("file");
-		formulaire1.executeConcrete();
+		formulaire1.beSigned(Max);
+		formulaire1.execute(Max);
 		RobotomyRequestForm	formulaire2("file2");
-		formulaire2.executeConcrete();
+		formulaire2.beSigned(Max);
+		formulaire2.execute(Max);
 		PresidentialPardonForm	formulaire3("file3");
-		formulaire3.executeConcrete();
+		formulaire3.beSigned(Max);
+		formulaire3.execute(Max);
 	}
 	catch(std::exception& e)
 	{

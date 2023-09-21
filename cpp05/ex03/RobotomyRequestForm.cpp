@@ -21,11 +21,19 @@ RobotomyRequestForm::RobotomyRequestForm(const std::string target): AForm("Robot
 RobotomyRequestForm::~RobotomyRequestForm()
 {}
 
-void	RobotomyRequestForm::executeConcrete() const {
-	std::cout << "* DRILLING NOISES *" << std::endl << _target;
-	srand(time(NULL));
-	if (rand() % 2)
-		std::cout << " has been robotimized successfully " << std::endl;
+void	RobotomyRequestForm::execute(const Bureaucrat& executor) const
+{
+	if (_isSigned == false)
+		throw ExecuteUnsignedException();
+	if (_gradeRequiredE < executor.getGrade())
+		throw GradeTooLowException();
 	else
-		std::cout << " the robotomy failed" << std::endl;
+	{
+		std::cout << "* DRILLING NOISES *" << std::endl << _target;
+		srand(time(NULL));
+		if (rand() % 2)
+			std::cout << " has been robotimized successfully " << std::endl;
+		else
+			std::cout << " the robotomy failed" << std::endl;
+	}
 }
