@@ -15,7 +15,7 @@
 PresidentialPardonForm::PresidentialPardonForm() : AForm()
 {}
 
-PresidentialPardonForm::PresidentialPardonForm(const std::string target): AForm("RobotomyRequestForm", 25, 5, target)
+PresidentialPardonForm::PresidentialPardonForm(const std::string target): AForm("PresidentialPardonForm", 25, 5, target)
 {}
 
 PresidentialPardonForm::~PresidentialPardonForm()
