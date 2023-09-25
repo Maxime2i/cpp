@@ -36,12 +36,14 @@ Base	*generate(void)
 void	identify(Base *p)
 {
 	std::cout << "identify pointeur: ";
-	if (dynamic_cast<A *>(p))
+	if (dynamic_cast<A *>(p) != NULL)
 		std::cout << "type is A" << std::endl;
-	else if (dynamic_cast<B *>(p))
+	else if (dynamic_cast<B *>(p) != NULL)
 		std::cout << "type is B" << std::endl;
-	else if (dynamic_cast<C *>(p))
+	else if (dynamic_cast<C *>(p) != NULL)
 		std::cout << "type is C" << std::endl;
+	else
+		std::cout << "Unknown type" << std::endl;
 }
 
 void	identify(Base &p)
