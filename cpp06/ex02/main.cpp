@@ -43,4 +43,10 @@ int main()
 	identify(test5);
 	identify(*test5);
 	std::cout << std::endl;
+	
+	delete test;
+	delete test2;
+	delete test3;
+	delete test4;
+	delete test5;
 }
