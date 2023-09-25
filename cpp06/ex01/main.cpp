@@ -30,4 +30,7 @@ int main ()
 	 	std::cout << "Fail" << std::endl;
 	delete test;
 	return (0);
+
+	delete test;
+	delete test2;
 }
