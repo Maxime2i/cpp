@@ -24,8 +24,10 @@ class Array
 		Array(unsigned int n) : _array(new T[n]), _size(n) {};
 		Array(Array const &copy)
 		{
-		for (unsigned int i = 0; i < _size; i++)
-			this->_array[i] = copy->_array[i];
+			this->_size = copy._size;
+			this->_array = new (T);
+			for (unsigned int i = 0; i < _size; i++)
+				this->_array[i] = copy._array[i];
 		}
 		Array &operator=(Array const &rhs)
 		{
